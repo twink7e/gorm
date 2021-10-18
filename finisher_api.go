@@ -13,6 +13,26 @@ import (
 	"gorm.io/gorm/utils"
 )
 
+// BuildSQL to switch into SQL builder mode
+func (db *DB) BuildSQL() (tx *DB) {
+	db.clone = 2
+	tx = db.Session(&Session{DryRun: true})
+	return tx
+}
+
+// ToSQL generate SQL string with SQL builder mode.
+// This method must call BuildSQL before.
+//
+// db.BuildSQL().Model(&User{}).Where(&User{Name: "foo", Age: 20}).Limit(10).Offset(5).Order("name ASC").First(&User{}).ToSQL()
+func (db *DB) ToSQL() string {
+	stmt := db.Statement
+	defer func() {
+		stmt.SQL.Reset()
+	}()
+
+	return db.Dialector.Explain(stmt.SQL.String(), stmt.Vars...)
+}
+
 // Create insert the value into database
 func (db *DB) Create(value interface{}) (tx *DB) {
 	if db.CreateBatchSize > 0 {
