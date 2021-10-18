@@ -8,6 +8,7 @@ import (
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 	. "gorm.io/gorm/utils/tests"
+	"os"
 	"time"
 )
 
@@ -290,6 +291,13 @@ func TestFromWithJoins(t *testing.T) {
 }
 
 func TestToSQL(t *testing.T) {
+	// only test in PostgreSQL
+	var dialect = os.Getenv("GORM_DIALECT")
+	if dialect != "postgres" {
+		t.Skipf("Skipping test for %s database", dialect)
+		return
+	}
+
 	// By default DB.DryRun should false
 	if DB.DryRun != false {
 		t.Fatal("Failed expect DB.DryRun to be false")
