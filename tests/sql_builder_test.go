@@ -376,5 +376,4 @@ func assertEqualSQL(t *testing.T, expected string, actually string) {
 	if actually != expected {
 		t.Fatalf("Failed generate save SQL\nexpected: %s\nactually: %s", expected, actually)
 	}
-
 }

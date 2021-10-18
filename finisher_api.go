@@ -13,7 +13,9 @@ import (
 	"gorm.io/gorm/utils"
 )
 
-// BuildSQL to switch into SQL builder mode
+// BuildSQL to switch into SQL builder mode, see ToSQL method.
+// When you called this method, the db instance will be DryRun mode,
+// Then the [Create, Save, Find, First, Update ...] method will not execute into database.
 func (db *DB) BuildSQL() (tx *DB) {
 	db.clone = 2
 	tx = db.Session(&Session{DryRun: true})
