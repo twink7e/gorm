@@ -35,6 +35,7 @@ const (
 	String DataType = "string"
 	Time   DataType = "time"
 	Bytes  DataType = "bytes"
+	Json   DataType = "json"
 )
 
 type Field struct {
@@ -242,6 +243,8 @@ func (schema *Schema) ParseField(fieldStruct reflect.StructField) *Field {
 	case reflect.Array, reflect.Slice:
 		if reflect.Indirect(fieldValue).Type().Elem() == reflect.TypeOf(uint8(0)) {
 			field.DataType = Bytes
+		} else {
+			field.DataType = Json
 		}
 	}
 
