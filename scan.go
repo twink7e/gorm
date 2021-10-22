@@ -2,7 +2,7 @@ package gorm
 
 import (
 	"database/sql/driver"
-	//"database/sql"
+	//"github.com/twink7e/go-database/sql"
 	"github.com/twink7e/go-database/sql"
 	"reflect"
 	"strings"

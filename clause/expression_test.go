@@ -1,7 +1,7 @@
 package clause_test
 
 import (
-	"database/sql"
+	"github.com/twink7e/go-database/sql"
 	"fmt"
 	"reflect"
 	"sync"

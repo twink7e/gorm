@@ -2,7 +2,7 @@ package tests_test
 
 import (
 	"context"
-	"database/sql"
+	"github.com/twink7e/go-database/sql"
 	"database/sql/driver"
 	"encoding/json"
 	"errors"

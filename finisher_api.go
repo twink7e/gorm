@@ -1,9 +1,9 @@
 package gorm
 
 import (
-	"database/sql"
 	"errors"
 	"fmt"
+	"github.com/twink7e/go-database/sql"
 	"reflect"
 	"strings"
 

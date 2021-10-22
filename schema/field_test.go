@@ -1,7 +1,7 @@
 package schema_test
 
 import (
-	"database/sql"
+	"github.com/twink7e/go-database/sql"
 	"reflect"
 	"sync"
 	"testing"

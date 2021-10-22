@@ -1,9 +1,9 @@
 package gorm
 
 import (
-	"database/sql"
 	"database/sql/driver"
 	"encoding/json"
+	"github.com/twink7e/go-database/sql"
 	"reflect"
 
 	"gorm.io/gorm/clause"

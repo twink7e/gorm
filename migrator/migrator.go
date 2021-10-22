@@ -2,8 +2,8 @@ package migrator
 
 import (
 	"context"
-	"database/sql"
 	"fmt"
+	"github.com/twink7e/go-database/sql"
 	"reflect"
 	"regexp"
 	"strings"

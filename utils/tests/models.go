@@ -1,7 +1,7 @@
 package tests
 
 import (
-	"database/sql"
+	"github.com/twink7e/go-database/sql"
 	"time"
 
 	"gorm.io/gorm"

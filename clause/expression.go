@@ -1,7 +1,7 @@
 package clause
 
 import (
-	"database/sql"
+	"github.com/twink7e/go-database/sql"
 	"database/sql/driver"
 	"go/ast"
 	"reflect"
