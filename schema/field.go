@@ -280,7 +280,7 @@ func (schema *Schema) ParseField(fieldStruct reflect.StructField) *Field {
 
 	if val, ok := field.TagSettings["TYPE"]; ok {
 		switch DataType(strings.ToLower(val)) {
-		case Bool, Int, Uint, Float, String, Time, Bytes:
+		case Bool, Int, Uint, Float, String, Time, Bytes, Json:
 			field.DataType = DataType(strings.ToLower(val))
 		default:
 			field.DataType = DataType(val)

@@ -54,6 +54,9 @@ type Reference struct {
 }
 
 func (schema *Schema) parseRelation(field *Field) *Relationship {
+	if field.DataType == Json{
+		return nil
+	}
 	var (
 		err        error
 		fieldValue = reflect.New(field.IndirectFieldType).Interface()

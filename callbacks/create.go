@@ -1,6 +1,7 @@
 package callbacks
 
 import (
+	"encoding/json"
 	"fmt"
 	"reflect"
 
@@ -284,7 +285,6 @@ func ConvertToCreateValues(stmt *gorm.Statement) (values clause.Values) {
 				}
 			}
 		}
-
 		switch stmt.ReflectValue.Kind() {
 		case reflect.Slice, reflect.Array:
 			stmt.SQL.Grow(stmt.ReflectValue.Len() * 18)
@@ -316,6 +316,9 @@ func ConvertToCreateValues(stmt *gorm.Statement) (values clause.Values) {
 					} else if field.AutoUpdateTime > 0 && updateTrackTime {
 						field.Set(rv, curTime)
 						values.Values[i][idx], _ = field.ValueOf(rv)
+					}
+					if field.DataType == schema.Json{
+						values.Values[i][idx], _ = json.Marshal(values.Values[i][idx])
 					}
 				}
 
@@ -356,6 +359,9 @@ func ConvertToCreateValues(stmt *gorm.Statement) (values clause.Values) {
 				} else if field.AutoUpdateTime > 0 && updateTrackTime {
 					field.Set(stmt.ReflectValue, curTime)
 					values.Values[0][idx], _ = field.ValueOf(stmt.ReflectValue)
+				}
+				if field.DataType == schema.Json{
+					values.Values[0][idx], _ = json.Marshal(values.Values[0][idx])
 				}
 			}
 
