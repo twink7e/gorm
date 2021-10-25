@@ -1,7 +1,7 @@
 package tests_test
 
 import (
-	"database/sql/driver"
+	"github.com/twink7e/go-database/sql/driiver"
 	"encoding/json"
 	"errors"
 	"testing"

@@ -3,7 +3,7 @@ package tests_test
 import (
 	"context"
 	"github.com/twink7e/go-database/sql"
-	"database/sql/driver"
+	"github.com/twink7e/go-database/sql/driiver"
 	"encoding/json"
 	"errors"
 	"fmt"

@@ -2,7 +2,7 @@ package schema
 
 import (
 	"github.com/twink7e/go-database/sql"
-	"database/sql/driver"
+	"github.com/twink7e/go-database/sql/driiver"
 	"fmt"
 	"reflect"
 	"strconv"

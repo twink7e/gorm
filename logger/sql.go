@@ -1,7 +1,7 @@
 package logger
 
 import (
-	"database/sql/driver"
+	"github.com/twink7e/go-database/sql/driiver"
 	"fmt"
 	"reflect"
 	"regexp"

@@ -1,7 +1,7 @@
 package tests
 
 import (
-	"database/sql/driver"
+	"github.com/twink7e/go-database/sql/driiver"
 	"fmt"
 	"go/ast"
 	"reflect"
